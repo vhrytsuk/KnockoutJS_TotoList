@@ -1,0 +1,36 @@
+#todoList{
+    margin: 0 auto;
+    width: 600px;
+}
+h1,h3{
+    font-family: sans-serif;
+}
+ul{
+    list-style-type: none;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+}
+.addTaskBlock{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.addTaskBlock input,
+.addTaskBlock button{
+    height: 50px;
+    box-sizing: border-box;
+}
+
+.addTaskBlock button{
+    margin-left: 10px;
+    border-radius: 10px;
+    border: 0;
+    background-color: darkslateblue;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}

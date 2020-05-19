@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="knockout-3.5.1.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="todoList">
+    <h1>Список Завдань</h1>
+
+    <div class="addTaskBlock">
+        <div class="inputBlock">
+            <label for="inputTask" data-bind="visible: inputCheck" style="color: red">Замало символів</label>
+            <input class="form_control" id="inputTask" data-bind="textInput: newTaskTitle" type="text"
+                   placeholder="What to do?">
+        </div>
+        <div class="btnBlock">
+            <button class="btnAddTask" data-bind="click: addTask">Додати завдання</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="taskBlock">
+            <h3>Завдання</h3>
+            <div data-bind="visible: tasks().length">
+                <ul data-bind="foreach: tasks">
+                    <li class="taskCheckbox">
+                        <label data-bind="click: $parent.checkTask">
+                            <input type="checkbox">
+                            <span data-bind="text: title"></span>
+                            <a href="#" class="delete-task" data-bind="click: $parent.removeTask">(Видалити)</a>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div data-bind="visible: !tasks().length">
+                Завдань немає
+            </div>
+        </div>
+        <div class="completeTaskBlock">
+            <h3>Виконані завдання</h3>
+            <div data-bind="visible: completeTask().length">
+                <ul data-bind="foreach: completeTask">
+                    <li class="task">
+                        <span data-bind="text: title"></span>
+                        <a href="#" class="undo-task" data-bind="click: $parent.undoTask">Відновити</a>
+                    </li>
+                </ul>
+            </div>
+            <div data-bind="visible: !completeTask().length">
+                Завдань немає
+            </div>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
